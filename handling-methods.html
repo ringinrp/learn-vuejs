@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+   <div id="app">
+    <button @click="kurang">-</button>
+    <span>{{ count }}</span>
+    <button @click="tambah">+</button>
+    <br>
+    <button @click="sayHello(' semoga hari mu menyennagkan')">Say Hello</button>
+    <br>
+    <input type="text" @keydown.enter="sayHello('berhasil memasukkan data')">
+    <br>
+    <form method="post" action="contoh.html" @submit.prevent>
+        <input type="text">
+        <input type="submit" value="send">
+    </form>
+   </div>
+
+
+    <script type="module">
+
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp ({
+            data(){
+                return {
+                        count: 0
+                    }
+                },
+                methods: {
+                    kurang(){
+                        this.count--
+                    },
+                    tambah(){
+                        this.count++
+                    },
+                    sayHello(notice){
+                        alert(notice)
+                    }
+                },
+        }).mount('#app')
+    </script>    
+</body>
+</html>
+
